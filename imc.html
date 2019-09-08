@@ -32,7 +32,7 @@
 			var suma = (peso /(altura*altura));
 			var arreglo = [];
 			arreglo["imc"] = suma;
-			arreglo["resultado"] = resultado;
+			
 			
 
 			if (suma<18.5) {
@@ -47,6 +47,7 @@
 						else if (suma > 30) {
 							resultado = "Estas bien gordo :v"						}
 						}
+					arreglo["resultado"] = resultado;
 					return arreglo;
 
 	}
