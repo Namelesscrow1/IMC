@@ -21,27 +21,33 @@
 		var altura = document.getElementById("altura").value;
 		var resultado = document.getElementById("resultado");
 		var imc = document.getElementById("imc");
-		resultado,innerText = pesar();
+		arreglo = pesar(peso,altura);
+		resultado.innerText = arreglo['resultado'];
+		imc.innerText = arreglo['imc'];
 
 	}
 
-	function pesar(){
-		if (peso.value!="" && altura.value!="") {
-			var suma = (peso.value /(altura.value*altura.value));
-			imc.innerText = suma;
+	function pesar(peso,altura){
+		if (peso!="" && altura!="") {
+			var suma = (peso /(altura*altura));
+			var arreglo = [];
+			arreglo["imc"] = suma;
+			arreglo["resultado"] = "";
+			
 
 			if (suma<18.5) {
-				resultado.innerText = "Estas flaco :v";
+				resultado = "Estas flaco :v";
 			}
 				else if (suma >= 18.5 && suma <= 24.9) {
-					resultado.innerText = "Andas bien";
+					resultado = "Andas bien";
 				}
 					else if (suma >= 25 && suma <= 29.9) {
-						resultado.innerText = "Ya no comas mucho";
+						resultado = "Ya no comas mucho";
 					}
 						else if (suma > 30) {
-							resultado.innerText = "Estas bien gordo :v"						}
+							resultado = "Estas bien gordo :v"						}
 						}
+					return arreglo;
 
 	}
 
