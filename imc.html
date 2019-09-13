@@ -3,16 +3,62 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Calcular IMC</title>
+	<style type="text/css">
+		#contenido{
+			padding-bottom: 0;
+			width: 50%;
+			text-align: center;
+			padding: 48px 0 0 ;
+			margin: 0;
+			box-sizing: border-box;
+			text-decoration: none;
+			display: block;
+		}
+		#titulocal{
+			background-color: #41b6e6;
+			padding: 1px;
+			width: 100%;
+			box-sizing: border-box;
+			margin: 0;
+			display: block;
+			text-align: center;
+
+		}
+	</style>
 </head>
 <body>
-	<p>ingresar peso (kg)</p>
-	<input type="text" id="peso">
-	<p>ingresar altura(cm)</p>
-	<input type="text" id="altura">
-	<input type="button" value="calcular" onclick="calcular()">
+	<div id="contenido">
+		<div id="titulocal">
+			<p>
+			<span>Calculadora de IMC</span>
+			</p>
+		</div>
+		<div id="cajacalculadora">
+			<div id="calculador">
+				<div id="formas">
+					<div id="sexo">
+						<a class="btn-gender" id="masculino"></a>
+						<a class="btn-gender" id="femenino"></a>
+					</div>
+					<div id="barrapeso">
+						<label>Peso (KG)</label>
+						<input type="text" id="peso">
+						<div id="barrita"></div>
+					</div>
+					<div id="barraestatura">
+						<label>Estatura (CM)</label>
+						<input type="text" id="altura">
+						<div id="barrita"></div>
+					</div>
+				</div>	
+			</div>
+		</div>
+			
+			<input type="button" value="calcular" onclick="calcular()">
 
-	<div id="imc"></div>
-	<div id="resultado"></div>
+			<div id="imc"></div>
+			<div id="resultado"></div>
+	</div>
 	
 </body>
 <script type="text/javascript">
@@ -28,6 +74,7 @@
 	}
 
 	function pesar(peso,altura){
+		var altura = altura/100;
 		if (peso!="" && altura!="") {
 			var suma = (peso /(altura*altura));
 			var arreglo = [];
@@ -38,13 +85,13 @@
 			if (suma<18.5) {
 				resultado = "Estas flaco :v";
 			}
-				else if (suma >= 18.5 && suma <= 24.9) {
+				else if (suma >= 18 && suma <= 25) {
 					resultado = "Andas bien";
 				}
-					else if (suma >= 25 && suma <= 29.9) {
+					else if (suma >= 25 && suma <= 30) {
 						resultado = "Ya no comas mucho";
 					}
-						else if (suma > 30) {
+						else if (suma >= 30) {
 							resultado = "Estas bien gordo :v"						}
 						}
 					arreglo["resultado"] = resultado;
